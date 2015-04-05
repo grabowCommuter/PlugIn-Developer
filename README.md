@@ -59,6 +59,7 @@ Just download or clone the app from this repro and jump into the method `loadWeb
 -----
 If your done and the app behaves as you want you should note the arguments of the invoked methods, e.g.:
 >	for setOptions:  `zoomCtrl : false, geoLocEnable : true, backButton : false, lockScreenRot : false, reload : true`
+
 >	for loadUrl: `url : 
 https://www.google.de/maps/@#lat#,#lng#,#zoom#z/data=!3m1!1e3?hl=en`
 
