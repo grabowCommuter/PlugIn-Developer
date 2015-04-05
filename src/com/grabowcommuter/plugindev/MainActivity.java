@@ -378,7 +378,7 @@ public class MainActivity extends ActionBarActivity {
 			*/
 		});
 		
- 
+		
 		// Example 1 (Test Dialogs) ---------------------------------------------------------------------
 		// Load your major script or html file (e.g. test.html) form the assets-folder of this project
 		String myScript = readFileFromAsset("alert_confirm_promt.html");
@@ -408,6 +408,7 @@ public class MainActivity extends ActionBarActivity {
 		wv.loadDataWithBaseURL("http://www.google.com", myScript, "text/html",null, null);
 		*/
 		
+		
 		/*
 		// Example 3 (Google maps satellite) -----------------------------------------------------------		
 		// We don't need a script, we just construct an URL
@@ -422,7 +423,7 @@ public class MainActivity extends ActionBarActivity {
 		          
 		// Load Url
 		wv.loadUrl(myUrl);
-		*/
+		*/ 
 		
 		
 		// -----------------------------------------------------------------------------------------
