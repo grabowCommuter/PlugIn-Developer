@@ -345,42 +345,9 @@ public class MainActivity extends ActionBarActivity {
 		zoom = "12";
 		zoomD = "12.567";
 		
-		// Configure the WebView for your needs
-		wv.setWebViewClient(new WebViewClient() {
-			
-			// Always stay in webview ... please modify to your needs
-			String shouldOverrideUrlLoading1 = "http";
-			String shouldOverrideUrlLoading2 = "https";
-			@Override
-			public boolean shouldOverrideUrlLoading(WebView view, String url) {
-				Log.i(TAG, "URL:" + url);
-				if ((url.startsWith(shouldOverrideUrlLoading1))
-						|| (url.startsWith(shouldOverrideUrlLoading2))) {
-					return false;
-				} else {
-					launchBrowser(url);
-					return true;
-				}
-			}
-			 
-			/*
-			@Override
-			// Use only if needed!!!
-			public void onPageFinished(WebView view, String url) {
-				if (!((onPageFinishedLoadUrl == null) || onPageFinishedLoadUrl
-						.isEmpty())) {
-					super.onPageFinished(wv, url);
-					wv.loadUrl(onPageFinishedLoadUrl);
-				} else {
-					return;
-				}
-			}
-			*/
-		});
-		
-		
 		// Example 1 (Test Dialogs) ---------------------------------------------------------------------
 		// Load your major script or html file (e.g. test.html) form the assets-folder of this project
+		
 		String myScript = readFileFromAsset("alert_confirm_promt.html");
 		// Replace #lat# #lng# #zoom#, but not required for these scripts
 		// myScript = replace(myScript);
@@ -418,14 +385,49 @@ public class MainActivity extends ActionBarActivity {
 		myUrl = replace(myUrl);
 
 		// Specify what your plugin should do: 
-		// disable zoomControls, enable GPS, disable backButton, enable ScreenRotationLock, enable reload
-		setOptions(wv, false, false, false, false, true);
+		// disable zoomControls, enable GPS, disable backButton, disable ScreenRotationLock, enable reload
+		setOptions(wv, false, true, false, false, true);
 		          
 		// Load Url
 		wv.loadUrl(myUrl);
-		*/ 
+		*/
 		
-		
+		  
+		// Configure the WebView for your needs
+		wv.setWebViewClient(new WebViewClient() {
+
+			// Always stay in webview ... please modify to your needs
+			String shouldOverrideUrlLoading1 = "http";
+			String shouldOverrideUrlLoading2 = "https";
+
+			@Override
+			public boolean shouldOverrideUrlLoading(WebView view, String url) {
+				Log.i(TAG, "URL:" + url);
+				if ((url.startsWith(shouldOverrideUrlLoading1))
+						|| (url.startsWith(shouldOverrideUrlLoading2))) {
+					return false;
+				} else {
+					launchBrowser(url);
+					return true;
+				}
+			}
+ 
+			
+			// Set the onPageFinishedLoadUrl if you want to execute a script after page loaded
+			String onPageFinishedLoadUrl = "";
+			@Override
+			public void onPageFinished(WebView view, String url) {
+				if (!((onPageFinishedLoadUrl == null) || onPageFinishedLoadUrl
+						.isEmpty())) {
+					super.onPageFinished(wv, url);
+					wv.loadUrl(onPageFinishedLoadUrl);
+				} else {
+					return;
+				}
+			}
+			
+		});
+
 		// -----------------------------------------------------------------------------------------
 		// Conclusion
 		// -----------------------------------------------------------------------------------------
