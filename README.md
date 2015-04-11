@@ -36,9 +36,9 @@ If you load a webpage - e.g. with `loadUrl()` - and the webpage contains links t
 As the web view will run as part of our main app ACom, you have the possibility to specify additional behavior:
 
  - enable / disable ZoomControls for the webView. (Maybe, you don’t want the zoomControl widget to appear.)
- - enable / disable location ability (Maybe, you want to disable GPS location.)
- - enable / disable backButton (Maybe, you have several webpages and you want to navigate inside the web view through the backButton.)
- - enable / disable screen-lock if you rotate the device (Maybe, you want to avoid config-changes by screen rotation.)
+ - enable / disable location ability. (Maybe, you want to disable GPS location.)
+ - enable / disable backButton. (Maybe, you have several webpages and you want to navigate inside the web view through the backButton, so enable backButton.)
+ - enable / disable screen-lock if you rotate the device. (Maybe, you want to avoid config-changes by screen rotation, so enable screen-lock.)
  - enable / disable reload-feature (Maybe, you clean-and-reload doesn’t work properly, so you might want to disable this option menu item.) 
 
 Set these behavior with the method 
@@ -54,7 +54,7 @@ Just download or clone the app from this repro and jump into the method `loadWeb
  - `loadUrl()` to start the web view with the url
  - `loadDataWithBaseUrl()` to execute a javascript
  - `shouldOverrideUrlLoading()` to specify the link behavior
- - `loadDataWithBaseUrl()` in the `onPageFinished()`-method
+ - `loadUrl()` in the `onPageFinished()`-method
 
 -----
 If your done and the app behaves as you want you should note the arguments of the invoked methods, e.g.:
